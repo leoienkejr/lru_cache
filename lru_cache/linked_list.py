@@ -71,8 +71,3 @@ class LinkedList:
             node._next = self._head
             node._previous = None
             self._head = node
-
-
-if __name__ == '__main__':
-    ll = LinkedList()
-    print(ll)
