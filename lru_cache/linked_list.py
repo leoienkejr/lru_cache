@@ -8,6 +8,7 @@ class LinkedListNode:
     data: Any = None
 
     def __init__(self, data: Any):
+        self.list_ref = None
         self.previous = None
         self.next = None
         self.data = data
@@ -29,7 +30,7 @@ class LinkedList:
         return (self._head is None) and (self._tail is None)
 
     def contains(self, node: LinkedListNode) -> bool:
-        return node.list_ref is self
+        return node is not None and node.list_ref is self
 
     def insert(self, data: Any):
         """ Insert new node containing 'data'

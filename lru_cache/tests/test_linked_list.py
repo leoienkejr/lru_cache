@@ -1,4 +1,4 @@
-from lru_cache.linked_list import LinkedList
+from lru_cache.linked_list import LinkedList, LinkedListNode
 
 
 def test_insert():
@@ -15,3 +15,22 @@ def test_is_empty():
 
     ll.insert(4)
     assert not ll.is_empty()
+
+
+def test_contains():
+    ll = LinkedList()
+    ll.insert(1)
+    loose_node = LinkedListNode(data=1)
+
+    assert ll.contains(getattr(ll, '_head'))
+    assert not ll.contains(loose_node)
+
+
+def test_move_to_head():
+    ll = LinkedList()
+    ll.insert(1)
+    ll.insert(2)
+    ll.insert(3)
+    ll.move_to_head(getattr(ll, '_tail'))
+
+    assert getattr(ll, '_head').data == 1
